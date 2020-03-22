@@ -1,8 +1,157 @@
-/* add css styles here (optional) */
-
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.insta-grid-parent-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
+
+/* Instagram grid styles */
+.insta-grid-wrapper {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.insta-grid {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 275px);
+
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.insta-grid-pic-viewport {
+  height: 275px;
+  width: 275px;
+  overflow: hidden;
+}
+
+.insta-grid-pic-viewport img {
+  height: 275px;
+}
+
+/* close icon start */
+.modal-close-bar-container {
+  background-color: red;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  --close-bar-cont-height: 40px;
+  --close-bar-cont-width: 40px;
+
+  height: var(--close-bar-cont-height);
+  width: var(--close-bar-cont-width);
+
+  margin: calc(var(--close-bar-cont-height) / 2);
+
+  cursor: pointer;
+}
+
+.modal-close-bar-container:hover,
+.modal-close-bar-container:focus {
+  transform: scale(1.2);
+}
+
+.close-bar-left,
+.close-bar-right {
+  height: 4px;
+  width: 100%;
+
+  position: absolute;
+
+  background-color: white;
+
+  border-radius: var(--border-radius);
+}
+
+.close-bar-left {
+  transform: translateY(calc(var(--close-bar-cont-height) / 2)) rotate(45deg);
+}
+.close-bar-right {
+  transform: translateY(calc(var(--close-bar-cont-height) / 2)) rotate(-45deg);
+}
+/* close icon end */
+
+/* modal start */
+.instagram-modal-viewport {
+  position: fixed;
+  z-index: 1;
+
+  height: 100%;
+  width: 100%;
+
+  left: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.instagram-modal-viewport.closed {
+  display: none;
+}
+
+.modal-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  width: fit-content;
+
+  padding: 1vmin;
+
+  background-color: white;
+}
+
+.modal-image {
+  max-width: 100%;
+}
+
+.modal-image-nav-container {
+  --side-length: 50px;
+
+  position: absolute;
+  height: var(--side-length);
+  width: var(--side-length);
+
+  top: 50%;
+  scale: 1;
+
+  cursor: pointer;
+
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30pt;
+  font-weight: 600;
+
+  user-select: none;
+}
+
+.modal-image-nav-container:hover,
+.modal-image-nav-container:focus {
+  scale: 1.2;
+}
+
+.modal-image-nav-container.prev {
+  left: 0;
+}
+
+.modal-image-nav-container.next {
+  right: 0;
+}
+/* modal end */
