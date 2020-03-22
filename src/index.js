@@ -2,14 +2,6 @@ import React from "react";
 
 import styles from "./styles.css";
 
-const InstaGrid = props => {
-  return (
-    <section className={styles["insta-grid-wrapper"]}>
-      <div className={styles["insta-grid"]}>{props.children}</div>
-    </section>
-  );
-};
-
 export default class InstagramGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -17,13 +9,13 @@ export default class InstagramGrid extends React.Component {
     this.state = {
       classNameSuffix: "",
       modalImgIndex: -1,
-      images: [
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/200",
-        "https://via.placeholder.com/200",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150"
+      images: this.props.imagesArray || [
+        "http://via.placeholder.com/100",
+        "http://via.placeholder.com/150",
+        "http://via.placeholder.com/200",
+        "http://via.placeholder.com/250",
+        "http://via.placeholder.com/300",
+        "http://via.placeholder.com/350"
       ]
     };
 
@@ -100,13 +92,19 @@ export default class InstagramGrid extends React.Component {
 
           <div
             onClick={this.handlePrevImg}
-            className={styles["modal-image-nav-container prev"]}
+            className={[
+              styles["modal-image-nav-container"],
+              styles["prev"]
+            ].join(" ")}
           >
             {"<"}
           </div>
           <div
             onClick={this.handleNextImg}
-            className={styles["modal-image-nav-container next"]}
+            className={[
+              styles["modal-image-nav-container"],
+              styles["next"]
+            ].join(" ")}
           >
             {">"}
           </div>
@@ -132,20 +130,21 @@ export default class InstagramGrid extends React.Component {
     return (
       <div className={styles["insta-grid-parent-wrapper"]}>
         {this.renderModal()}
-        <InstaGrid>
-          {this.state.images.map((image, i) => {
-            return (
-              <div
-                key={i}
-                style={{ cursor: "pointer" }}
-                className={styles["insta-grid-pic-viewport"]}
-                onClick={() => this.handleImgClick(i)}
-              >
-                <img src={image} alt="Img" />
-              </div>
-            );
-          })}
-        </InstaGrid>
+        <section className={styles["insta-grid-wrapper"]}>
+          <div className={styles["insta-grid"]}>
+            {this.state.images.map((image, i) => {
+              return (
+                <div
+                  key={i}
+                  className={styles["insta-grid-pic-viewport"]}
+                  onClick={() => this.handleImgClick(i)}
+                >
+                  <img src={image} alt="Img" />
+                </div>
+              );
+            })}
+          </div>
+        </section>
       </div>
     );
   }

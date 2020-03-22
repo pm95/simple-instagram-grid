@@ -29,6 +29,7 @@
   height: 275px;
   width: 275px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .insta-grid-pic-viewport img {
@@ -37,8 +38,6 @@
 
 /* close icon start */
 .modal-close-bar-container {
-  background-color: red;
-
   position: absolute;
   right: 0;
   top: 0;
