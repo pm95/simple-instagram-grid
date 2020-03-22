@@ -139,7 +139,11 @@ export default class InstagramGrid extends React.Component {
                   className={styles["insta-grid-pic-viewport"]}
                   onClick={() => this.handleImgClick(i)}
                 >
-                  <img src={image} alt="Img" />
+                  <img
+                    src={image}
+                    alt="Img"
+                    className={styles["insta-grid-pic-viewport-img"]}
+                  />
                 </div>
               );
             })}

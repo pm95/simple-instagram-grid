@@ -17,23 +17,24 @@
 }
 
 .insta-grid {
+  --img-side-length: 25vmin;
   margin: 10px;
   display: grid;
-  grid-template-columns: repeat(3, 275px);
+  grid-template-columns: repeat(3, var(--img-side-length));
 
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
 .insta-grid-pic-viewport {
-  height: 275px;
-  width: 275px;
+  height: var(--img-side-length);
+  width: var(--img-side-length);
   overflow: hidden;
   cursor: pointer;
 }
 
-.insta-grid-pic-viewport img {
-  height: 275px;
+.insta-grid-pic-viewport-img {
+  height: var(--img-side-length);
 }
 
 /* close icon start */
